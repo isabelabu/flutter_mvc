@@ -1,0 +1,44 @@
+name: proj_estruturanova
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/cerberus.png
+    - assets/images/frieren.png
+    - assets/images/hutao.png
+    - assets/images/hxh.jpg
+    - assets/images/nikki.png
+
+  fonts:
+    - family: AestheticMoment
+      fonts:
+        - asset: assets/fonts/Aesthetic Moment.ttf
+    - family: AMORIA
+      fonts:
+        - asset: assets/fonts/AMORIA.otf
+    - family: Hippo
+      fonts:
+        - asset: assets/fonts/Hippo.ttf
+    - family: OceanSummer
+      fonts:
+        - asset: assets/fonts/Ocean Summer.otf
+    - family: Vendya
+      fonts:
+        - asset: assets/fonts/vendya.ttf

@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:proj_estruturanova/controllers/navigation_controller.dart';
+import 'package:proj_estruturanova/styles/app_styles.dart';
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+  final String? nextPage;
+  final bool showBackButton;
+
+  const CustomAppBar({
+    super.key,
+    this.nextPage,
+    this.showBackButton = true,
+  });
+
+  @override
+  Widget build(BuildContext context){
+    return AppBar(
+      backgroundColor: AppColors.appBar,
+      leading: IconButton(
+        icon: const Icon(Icons.home_filled),
+        onPressed: (){
+          Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+        },
+      ),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if(showBackButton)
+          IconButton(
+            icon: const Icon(Icons.chevron_left_rounded),
+            onPressed: (){
+              NavigationController.goBack(context);
+            },
+          ),
+          Expanded(
+            child: Text(
+              'Isabela Bueno Silva - ${DateTime.now().year}',
+              style: AppTextStyles.appBarText,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          if(nextPage != null)
+          IconButton(
+            icon: const Icon(Icons.chevron_right_rounded),
+            onPressed: (){
+              NavigationController.goTo(context, nextPage!);
+            },
+          ),
+        ],
+      ),
+      automaticallyImplyLeading: false,
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
